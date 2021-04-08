@@ -2,6 +2,7 @@ package cn.keking.model;
 
 import cn.keking.config.ConfigConstants;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -78,6 +79,26 @@ public enum FileType {
         String nonPramStr = url.substring(0, url.contains("?") ? url.indexOf("?") : url.length());
         String fileName = nonPramStr.substring(nonPramStr.lastIndexOf("/") + 1);
         return typeFromFileName(fileName);
+    }
+
+    /**
+     * 查看文件类型(防止参数中存在.点号或者其他特殊字符，所以先抽取文件名，然后再获取文件类型)
+     * 如果url中无法获取文件类型，就从request中获取
+     * @param url url
+     * @param req
+     * @return 文件类型
+     */
+    public static FileType typeFromUrl(String url, HttpServletRequest req) {
+        String nonPramStr = url.substring(0, url.contains("?") ? url.indexOf("?") : url.length());
+        String fileName = nonPramStr.substring(nonPramStr.lastIndexOf("/") + 1);
+        FileType fileType = typeFromFileName(fileName);
+        if (fileType == FileType.valueOf("OTHER")) {
+            String fileTypeFromParameter = req.getParameter("fileType");
+            if (null != fileType) {
+                fileType = FileType.to(fileTypeFromParameter);
+            }
+        }
+        return fileType;
     }
 
     public static FileType typeFromFileName(String fileName) {

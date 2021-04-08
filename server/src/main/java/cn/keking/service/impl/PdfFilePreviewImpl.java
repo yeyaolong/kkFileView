@@ -33,7 +33,13 @@ public class PdfFilePreviewImpl implements FilePreview {
         String fileName = fileAttribute.getName();
         String officePreviewType = fileAttribute.getOfficePreviewType();
         String baseUrl = BaseUrlFilter.getBaseUrl();
-        String pdfName = fileName.substring(0, fileName.lastIndexOf(".") + 1) + "pdf";
+        String pdfName = "template.pdf";
+        if (fileName.lastIndexOf(".") >= 0) {
+            pdfName = fileName.substring(0, fileName.lastIndexOf(".") + 1) + "pdf";
+        } else {
+            pdfName = fileName + ".pdf";
+        }
+
         String outFilePath = FILE_DIR + pdfName;
         if (OfficeFilePreviewImpl.OFFICE_PREVIEW_TYPE_IMAGE.equals(officePreviewType) || OfficeFilePreviewImpl.OFFICE_PREVIEW_TYPE_ALL_IMAGES.equals(officePreviewType)) {
             //当文件不存在时，就去下载

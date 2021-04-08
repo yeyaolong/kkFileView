@@ -1,7 +1,9 @@
 package cn.keking.utils;
 
+import cn.keking.model.FileType;
 import io.mola.galimatias.GalimatiasParseException;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
@@ -86,6 +88,7 @@ public class WebUtils {
     }
 
 
+
     /**
      * 从url中获取文件后缀
      *
@@ -96,5 +99,31 @@ public class WebUtils {
         String nonPramStr = url.substring(0, url.contains("?") ? url.indexOf("?") : url.length());
         String fileName = nonPramStr.substring(nonPramStr.lastIndexOf("/") + 1);
         return KkFileUtils.suffixFromFileName(fileName);
+    }
+
+    /**
+     * 从url中获取文件后缀，如果获取不了，就从reqeust中获取
+     * @param url url
+     * @param req request请求
+     * @return 文件后缀
+     */
+    public static String suffixFromUrl(String url, HttpServletRequest req) {
+        String nonPramStr = url.substring(0, url.contains("?") ? url.indexOf("?") : url.length());
+        String fileName = nonPramStr.substring(nonPramStr.lastIndexOf("/") + 1);
+        String suffix = KkFileUtils.suffixFromFileName(fileName);
+
+        String fileTypeFromParameter = req.getParameter("fileType");
+        if (fileTypeFromParameter != null) {
+            switch (fileTypeFromParameter) {
+                case "pdf":
+                case "PDF":
+                    suffix = ".pdf";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return suffix;
     }
 }

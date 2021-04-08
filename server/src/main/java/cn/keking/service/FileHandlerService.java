@@ -267,8 +267,8 @@ public class FileHandlerService {
             suffix = KkFileUtils.suffixFromFileName(fullFileName);
         } else {
             fileName = WebUtils.getFileNameFromURL(url);
-            type = FileType.typeFromUrl(url);
-            suffix = WebUtils.suffixFromUrl(url);
+            type = FileType.typeFromUrl(url, req);
+            suffix = WebUtils.suffixFromUrl(url, req);
         }
         attribute.setType(type);
         attribute.setName(fileName);
