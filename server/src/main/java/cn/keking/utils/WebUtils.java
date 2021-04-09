@@ -114,16 +114,10 @@ public class WebUtils {
 
         String fileTypeFromParameter = req.getParameter("fileType");
         if (fileTypeFromParameter != null) {
-            switch (fileTypeFromParameter) {
-                case "pdf":
-                case "PDF":
-                    suffix = ".pdf";
-                    break;
-                default:
-                    break;
-            }
+            suffix = fileTypeFromParameter.toLowerCase();
         }
-
         return suffix;
     }
+
+
 }

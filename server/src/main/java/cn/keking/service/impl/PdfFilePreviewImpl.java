@@ -44,7 +44,7 @@ public class PdfFilePreviewImpl implements FilePreview {
         if (OfficeFilePreviewImpl.OFFICE_PREVIEW_TYPE_IMAGE.equals(officePreviewType) || OfficeFilePreviewImpl.OFFICE_PREVIEW_TYPE_ALL_IMAGES.equals(officePreviewType)) {
             //当文件不存在时，就去下载
             if (!fileHandlerService.listConvertedFiles().containsKey(pdfName) || !ConfigConstants.isCacheEnabled()) {
-                ReturnResponse<String> response = DownloadUtils.downLoad(fileAttribute, fileName);
+                ReturnResponse<String> response = DownloadUtils.downLoad(fileAttribute, pdfName);
                 if (response.isFailure()) {
                     return otherFilePreview.notSupportedFile(model, fileAttribute, response.getMsg());
                 }
