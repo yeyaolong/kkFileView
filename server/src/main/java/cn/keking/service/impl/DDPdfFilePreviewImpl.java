@@ -2,11 +2,10 @@ package cn.keking.service.impl;
 
 import cn.keking.config.ConfigConstants;
 import cn.keking.model.FileAttribute;
-import cn.keking.model.FileType;
 import cn.keking.model.ReturnResponse;
+import cn.keking.service.FileHandlerService;
 import cn.keking.service.FilePreview;
 import cn.keking.utils.DownloadUtils;
-import cn.keking.service.FileHandlerService;
 import cn.keking.web.filter.BaseUrlFilter;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -14,17 +13,17 @@ import org.springframework.ui.Model;
 import java.util.List;
 
 /**
- * Created by kl on 2018/1/17.
- * Content :处理pdf文件
+ * Created by yeyl on 2021/04/21.
+ * Content : 在专有钉钉小程序中处理pdf文件
  */
 @Service
-public class PdfFilePreviewImpl implements FilePreview {
+public class DDPdfFilePreviewImpl implements FilePreview {
 
     private final FileHandlerService fileHandlerService;
     private final OtherFilePreviewImpl otherFilePreview;
     private static final String FILE_DIR = ConfigConstants.getFileDir();
 
-    public PdfFilePreviewImpl(FileHandlerService fileHandlerService, OtherFilePreviewImpl otherFilePreview) {
+    public DDPdfFilePreviewImpl(FileHandlerService fileHandlerService, OtherFilePreviewImpl otherFilePreview) {
         this.fileHandlerService = fileHandlerService;
         this.otherFilePreview = otherFilePreview;
     }
@@ -87,6 +86,6 @@ public class PdfFilePreviewImpl implements FilePreview {
                 model.addAttribute("pdfUrl", url);
             }
         }
-        return PDF_FILE_PREVIEW_PAGE;
+        return DING_PDF_FILE_PREVIEW_PAGE;
     }
 }

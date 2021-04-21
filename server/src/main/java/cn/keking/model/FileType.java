@@ -17,6 +17,7 @@ public enum FileType {
     OFFICE("officeFilePreviewImpl"),
     SIMTEXT("simTextFilePreviewImpl"),
     PDF("pdfFilePreviewImpl"),
+    DDPDF("DDPdfFilePreviewImpl"),
     CODE("codeFilePreviewImpl"),
     OTHER("otherFilePreviewImpl"),
     MEDIA("mediaFilePreviewImpl"),
@@ -61,8 +62,10 @@ public enum FileType {
         FILE_TYPE_MAPPER.put("md", FileType.MARKDOWN);
         FILE_TYPE_MAPPER.put("xml", FileType.XML);
         FILE_TYPE_MAPPER.put("pdf", FileType.PDF);
+        FILE_TYPE_MAPPER.put("ddPdf", FileType.DDPDF); // 在钉钉小程序中显示pdf
         FILE_TYPE_MAPPER.put("dwg", FileType.CAD);
         FILE_TYPE_MAPPER.put("flv", FileType.FLV);
+
     }
 
     private static FileType to(String fileType) {

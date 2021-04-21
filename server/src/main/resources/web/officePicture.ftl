@@ -18,6 +18,21 @@
         }
 
     </style>
+    <script type="text/javascript" src="https://appx/web-view.min.js"></script>
+    <script>
+
+        if (navigator.userAgent.indexOf('AlipayClient') > -1 || navigator.userAgent.indexOf('mPaaSClient') > -1) {
+            document.writeln('<script src="https://appx/web-view.min.js"' + '>' + '<' + '/' + 'script>');
+        }
+        // javascript
+        my.navigateTo({url: '../index/index'});
+        // 网页向小程序 postMessage 消息
+        my.postMessage({name:"测试web-view"});
+        // 接收来自小程序的消息。
+        my.onMessage = function(e) {
+            console.log(e); //{'sendToWebView': '1'}
+        }
+    </script>
 </head>
 <body>
 <div class="container">

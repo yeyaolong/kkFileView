@@ -211,9 +211,27 @@ pdf预览模式预览效果如下
 登记下，如果节省了你的三方预览服务费用，也愿意支持下的话，可点击下方【捐助】请作者喝杯咖啡，也是非常感谢
 
 ### Stars 趋势图
-#### Gitee
+#### Gitee预览文件url
 [![Stargazers over time](https://whnb.wang/img/kekingcn/file-online-preview)](https://whnb.wang/kekingcn/file-online-preview?e=86400)
 
 #### GitHub
 
 [![Stargazers over time](https://starchart.cc/kekingcn/kkFileView.svg)](https://starchart.cc/kekingcn/kkFileView)
+
+
+### 打开一个url中没有文件后缀的文件.
+1、文件url编码
+
+```javascript
+// let origin = base64(url);
+// 打开页面:
+// window.open(`http://localhost:8012/onlinePreview?fileType=pdf&&url=${origin}`);
+// js有提供 base64编码方法
+// 由于文件服务器返回的url有时间限制，这里的url可能辉经常更换
+let url = "https://jd.citybrain.hangzhou.gov.cn/upload/citybrain/e567d8af14c9c9a5fd488d739d1d2194?Expires=1618986898&OSSAccessKeyId=j8keB12tJFLIeUfq&Signature=%2Fr%2BRg2%2FISD6LYsLt0xSfcvT4VhM%3D"
+let origin = window.btoa(url);
+origin = window.encodeURIComponent(origin);
+console.log(`http://localhost:8012/onlinePreview?officePreviewType=pdf&&fileType=pdf&&url=${origin}`);
+// http://localhost:8012/onlinePreview?officePreviewType=pdf&&fileType=ddPdf&&url=aHR0cHM6Ly9qZC5jaXR5YnJhaW4uaGFuZ3pob3UuZ292LmNuL3VwbG9hZC9jaXR5YnJhaW4vZTU2N2Q4YWYxNGM5YzlhNWZkNDg4ZDczOWQxZDIxOTQ%2FRXhwaXJlcz0xNjE4OTg2ODk4Jk9TU0FjY2Vzc0tleUlkPWo4a2VCMTJ0SkZMSWVVZnEmU2lnbmF0dXJlPSUyRnIlMkJSZzIlMkZJU0Q2TFlzTHQweFNmY3ZUNFZoTSUzRA%3D%3D
+// window.open(`http://localhost:8012/onlinePreview?fileType=pdf&&url=${origin}`);
+```
