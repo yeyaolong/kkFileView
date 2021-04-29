@@ -228,10 +228,10 @@ pdf预览模式预览效果如下
 // window.open(`http://localhost:8012/onlinePreview?fileType=pdf&&url=${origin}`);
 // js有提供 base64编码方法
 // 由于文件服务器返回的url有时间限制，这里的url可能辉经常更换
-let url = "https://jd.citybrain.hangzhou.gov.cn/upload/citybrain/e567d8af14c9c9a5fd488d739d1d2194?Expires=1618986898&OSSAccessKeyId=j8keB12tJFLIeUfq&Signature=%2Fr%2BRg2%2FISD6LYsLt0xSfcvT4VhM%3D"
+let url = "https://jd.citybrain.hangzhou.gov.cn/upload/citybrain/d81aa99fd19a175b7fad2307eccff452?Expires=1619668400&OSSAccessKeyId=j8keB12tJFLIeUfq&Signature=CZCCVAnC%2Br94L9tbHItSuSKhgmw%3D"
 let origin = window.btoa(url);
 origin = window.encodeURIComponent(origin);
-http://localhost:8012/onlinePreview?officePreviewType=pdf&&fileType=ddPdf&&url=aHR0cHM6Ly9qZC5jaXR5YnJhaW4uaGFuZ3pob3UuZ292LmNuL3VwbG9hZC9jaXR5YnJhaW4vZTU2N2Q4YWYxNGM5YzlhNWZkNDg4ZDczOWQxZDIxOTQ%2FRXhwaXJlcz0xNjE4OTg2ODk4Jk9TU0FjY2Vzc0tleUlkPWo4a2VCMTJ0SkZMSWVVZnEmU2lnbmF0dXJlPSUyRnIlMkJSZzIlMkZJU0Q2TFlzTHQweFNmY3ZUNFZoTSUzRA%3D%3D
+// http://localhost:8012/onlinePreview?officePreviewType=pdf&&fileType=ddPdf&&url=aHR0cHM6Ly9qZC5jaXR5YnJhaW4uaGFuZ3pob3UuZ292LmNuL3VwbG9hZC9jaXR5YnJhaW4vZTU2N2Q4YWYxNGM5YzlhNWZkNDg4ZDczOWQxZDIxOTQ%2FRXhwaXJlcz0xNjE4OTg2ODk4Jk9TU0FjY2Vzc0tleUlkPWo4a2VCMTJ0SkZMSWVVZnEmU2lnbmF0dXJlPSUyRnIlMkJSZzIlMkZJU0Q2TFlzTHQweFNmY3ZUNFZoTSUzRA%3D%3D
 console.log(`http://localhost:8012/onlinePreview?officePreviewType=pdf&&fileType=ddPdf&&url=${origin}`);
 // http://localhost:8012/onlinePreview?officePreviewType=pdf&&fileType=ddPdf&&url=aHR0cHM6Ly9qZC5jaXR5YnJhaW4uaGFuZ3pob3UuZ292LmNuL3VwbG9hZC9jaXR5YnJhaW4vZTU2N2Q4YWYxNGM5YzlhNWZkNDg4ZDczOWQxZDIxOTQ%2FRXhwaXJlcz0xNjE4OTg2ODk4Jk9TU0FjY2Vzc0tleUlkPWo4a2VCMTJ0SkZMSWVVZnEmU2lnbmF0dXJlPSUyRnIlMkJSZzIlMkZJU0Q2TFlzTHQweFNmY3ZUNFZoTSUzRA%3D%3D
 // window.open(`http://localhost:8012/onlinePreview?fileType=pdf&&url=${origin}`);
