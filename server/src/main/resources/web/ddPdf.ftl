@@ -31,7 +31,7 @@
 </#if>
 <iframe src="" width="100%" frameborder="0"></iframe>
 <div class="btn-group">
-    <div class="btn" onclick="goForAudit()">返回</div>
+    <div class="btn" onclick="goForAudit()">查看预约信息</div>
 </div>
 </body>
 <script type="text/javascript">
@@ -41,13 +41,14 @@
         url = baseUrl + 'getCorsFile?urlPath=' + encodeURIComponent(url);
     }
     document.getElementsByTagName('iframe')[0].src = "${baseUrl}pdfjs/web/viewer.html?file=" + encodeURIComponent(url) + "&disabledownload=${pdfDownloadDisable}";
-    document.getElementsByTagName('iframe')[0].height = document.documentElement.clientHeight - 60;
+    document.getElementsByTagName('iframe')[0].height = document.documentElement.clientHeight - 45;
+    document.getElementsByTagName('iframe')[0].align = "top";
     /**
      * 页面变化调整高度
      */
     window.onresize = function () {
         var fm = document.getElementsByTagName("iframe")[0];
-        fm.height = window.document.documentElement.clientHeight - 60;
+        fm.height = window.document.documentElement.clientHeight - 45;
     }
     // 返回审核页面
     function goForAudit() {
